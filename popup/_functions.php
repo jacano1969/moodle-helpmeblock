@@ -2,13 +2,11 @@
 require_once(dirname(__FILE__) .'/../adodb5/adodb.inc.php');
 require_once(dirname(__FILE__) .'/../../../config.php');
 
-
 function get_support_link($locale = 'dk'){
-
     // list of different support form recievers
     $recievers = array(
         'cgs.moodle.aau.dk' => 'cgs.moodle',
-        'art.moodle.aau.dk' => '=art.moodle',
+        'art.moodle.aau.dk' => 'art.moodle',
         'huminfaau.moodle.aau.dk' => 'huminfaau.moodle',
         'huminf.moodle.aau.dk' => 'huminf.moodle',
         'learninglab.moodle.aau.dk' => 'learninglab.moodle',
@@ -34,8 +32,6 @@ function get_support_link($locale = 'dk'){
 
     return $supporturi;
 }
-
-
 
 function dbOpenConnection(){
     global $CFG;

@@ -80,7 +80,7 @@ if(empty($language)){
             ."igennem nogle af de generelle funktioner og opgaver i Moodle. Yderligere "
             ."hjælp kan fåes i <A HREF=\"$support_link\" TARGET="_blank">Moodle-support</A>.";
 	}
-	?>
+?>
 </div>
 <div id="border-box">
 	<div class="box-headline">
@@ -108,4 +108,3 @@ function makeDirectory($lang){
 		echo "</div>\n";
 	}
 }
-?>
