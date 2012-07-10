@@ -72,15 +72,15 @@ if(empty($language)){
 	{
         echo "Here you will find guides for the use of Moodle. Use these to be guided "
             ."through some of the general functions and tasks in Moodle. Further help "
-            ."can be found in <A HREF=\"$support_link\" TARGET="_blank">Moodle-support</A>."; 
+            ."can be found in <A HREF=\"$support_link\" TARGET=\"_blank\">Moodle-support</A>."; 
 	}
 	else
 	{
         echo "Her finder du guider i brugen af Moodle. Benyt disse til at blive guidet "
             ."igennem nogle af de generelle funktioner og opgaver i Moodle. Yderligere "
-            ."hjælp kan fåes i <A HREF=\"$support_link\" TARGET="_blank">Moodle-support</A>.";
+            ."hjælp kan fåes i <A HREF=\"$support_link\" TARGET=\"_blank\">Moodle-support</A>.";
 	}
-	?>
+?>
 </div>
 <div id="border-box">
 	<div class="box-headline">
@@ -108,4 +108,3 @@ function makeDirectory($lang){
 		echo "</div>\n";
 	}
 }
-?>
