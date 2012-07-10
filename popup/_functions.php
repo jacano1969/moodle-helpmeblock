@@ -11,7 +11,12 @@ function get_support_link($locale = 'dk'){
         'huminf.moodle.aau.dk' => 'huminf.moodle',
         'learninglab.moodle.aau.dk' => 'learninglab.moodle',
         'master-it.moodle.aau.dk' => 'master-it.moodle',
-        'musik.moodle.aau.dk' => 'musik.moodle' );
+        'musik.moodle.aau.dk' => 'musik.moodle',
+        'sadp.moodle.aau.dk' => 'sadp.moodle',
+        'sef.moodle.aau.dk' => 'sef.moodle',
+        'ses.moodle.aau.dk' => 'ses.moodle',
+        'sict.moodle.aau.dk' => 'sict.moodle',
+        'smh.moodle.aau.dk' => 'smh.moodle' );
     
     $support_uri = "http://www.elsa.aau.dk/Kontakt-Support.moodle-3.0.html";
     $args = array();
