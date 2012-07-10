@@ -1,0 +1,108 @@
+﻿<?php
+/*
+Forfatter: Michael Vestergaard Larsen
+
+Beskrivelse:
+Denne fil inkluderes i settings siden for blocken, og laver det html der bruges på settings siden.
+
+Email: michael@vestergard.dk
+*/
+
+require_once ($CFG->dirroot . '/blocks/elsa/popup/_functions.php');
+require_once ($CFG->dirroot . '/blocks/elsa/db_install.php');
+$urlphp = substr($_SERVER['REQUEST_URI'], 7);
+dbOpenConnection();
+if(isset($_GET["slet"]))
+{
+	dbQuery("DELETE FROM mdl_elsa_guider WHERE id=".$_GET["slet"]);
+	$temparray = explode('&', $urlphp);
+	printf("<script>location.href='".$temparray[0]."'</script>");
+}
+echo "<script language='javascript'>
+function confirmDelete(name, id){
+	if(confirm('Vil du slette '+name+'?')){
+		location.href='".$urlphp."&slet='+id;
+	}
+}
+</script>";
+?>
+<div style="text-align:center;">
+<?
+echo '<button type="button" onclick="javascript:location.href=\''.$_SERVER['REQUEST_URI'].'\'">Opdater listen</button> <br /><br />';
+echo '<button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/edit.php?action=new\', \'Nyt hjælpemne\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Opret nyt hjælpeemne</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php\', \'Rediger kategorier\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger kategorier</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/fileupload.php\', \'Fil Upload\', \'location=1,status=1,scrollbars=1,height=600, width=500, scrollbars=1\')">Upload billede</button>';
+?>
+<br /><br />
+Simpel hit stats: <? 
+if(isDBsetup())
+{
+	$hits = dbQuery("SELECT hits FROM mdl_elsa_stats WHERE id=1");
+	$hit = dbFetchArray($hits);
+	echo $hit["hits"];
+}
+?>
+<h3>Oversigt over alle hj&aelig;lpeemner og hvor de bliver vist</h3>
+<table cellspacing="5">
+<?php
+if(isDBsetup())
+{
+	$query = "SELECT * FROM mdl_elsa_guider ORDER BY id;";
+	$subjects = dbQuery($query);
+	$subject = dbFetchArray($subjects);
+	$i = 1;
+	while($subject != null)
+	{
+		echo '<tr><td valign="top" align="left"><b>'.$subject["titel_dk"].' / '.$subject["titel_en"].'</b> <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/edit.php?guideId='.$subject["id"].'\', \'Rediger\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger</button> - <button type="button" onclick="javascript:confirmDelete(\''.$subject["titel_dk"].'\', \''.$subject["id"].'\')">Slet</button></td></tr>';
+	
+		echo '<tr><td valign="top" align="left">';
+		echo '<input type="checkbox" name="ikke_logget_ind'.$i.'" ';
+		if($subject["show_not_loggedin"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> Ikke logget ind<br />';
+		echo '<input type="checkbox" name="forsiden_studerende'.$i.'" ';
+		if($subject["show_frontpage_student"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> Forsiden studerende<br />';
+		echo '<input type="checkbox" name="forsiden_underviser'.$i.'" ';
+		if($subject["show_frontpage_teacher"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> Forsiden underviser<br />';
+		echo '<input type="checkbox" name="mymoodle_studerende'.$i.'" ';
+		if($subject["show_my_student"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> MyMoodle studerende<br />';
+		echo '<input type="checkbox" name="mymoodle_underviser'.$i.'" ';
+		if($subject["show_my_teacher"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> MyMoodle underviser<br />';
+		echo '<input type="checkbox" name="kursus_studerende'.$i.'" ';
+		if($subject["show_course_student"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> Kursus studerende<br />';
+		echo '<input type="checkbox" name="kursus_underviser'.$i.'" ';
+		if($subject["show_course_teacher"])
+			echo 'checked ';
+		echo 'value="'.$subject["id"].'"';
+		echo '> Kursus underviser<br />';
+		
+		
+		echo '</td></tr>';
+		$i++;
+		$subject = dbFetchArray($subjects);
+	}
+}
+else
+{
+	setupDB();
+	
+	echo '<tr><td>Database opsat og guider tilføjet, tryk opdater liste!</td></tr>';
+}
+?>
+</table>
+<input type="submit" value="<?php print_string('savechanges'); ?>" /></
+</div>

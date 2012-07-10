@@ -1,0 +1,204 @@
+/* Generele attributter */
+body, td	{
+	padding : 0px;
+	margin : 0px;
+	font-family : verdana, tahoma, arial, sans-serif;
+	font-size : 8pt;
+	background-color : #FFFFFF;
+	width: 235px;
+}
+
+img {
+	border : 0px;
+}
+
+img.screenshot {
+  border : 1px solid black; 
+	margin : 5px 0px 20px 0px;
+	float : none;
+	display : block;
+	text-align : left;
+}
+
+img.ikon {
+	text-align : left;
+	margin : 5px 0px 20px 0px;
+	float : none;
+	display : block;
+}
+
+acronym {
+  border-bottom: 1px dashed #000;
+	font-style: italic;
+}
+
+A {
+	color : #2d617d;
+	font-weight : bold;
+}
+
+A:link {
+	color : #2d617d;
+	text-decoration : none;
+	background-color: transparent;
+}
+
+A:visited	{
+	color : #888888;
+	text-decoration : none;
+	background-color: transparent;
+}
+
+A:active{
+	text-decoration : underline;
+}
+
+A:hover{
+	text-decoration : underline;
+}
+
+/* Ikon tabeller */ 
+.ikontabel{
+/*	border-spacing: 5px 10px;*/
+	margin-right : 25px;
+}
+
+
+/* Toggle list */
+.firstlevel-text{
+	padding-top : 10px;
+	padding-bottom  : 3px;
+	vertical-align : top;
+	height : 16px;
+	width="100%"
+}
+
+.firstlevel-img{
+	float : left;
+	position : relative;
+	margin-top : 11px;
+	margin-right : 3px;
+/*border : 1px solid green;*/
+}
+
+ul {
+	padding : 0px 0px 0px 5px;
+	margin : 10px 0px 0px 0px;
+} 
+
+ul.guide-list {
+	padding : 0px 0px 5px 3px;
+	margin : 0px 0px 0px 0px;
+} 
+
+li {
+	padding : 1px 0px 7px 0px;
+	margin-left : 20px;
+	list-style-type: square;
+}
+
+li.guide-list{
+	padding : 1px 0px 5x 0px;
+	margin-left : 7px;
+	list-style-type: square;
+}
+
+li.normal {
+	padding : 0px 0px 0px 0px;
+	margin-left : 10px;
+	list-style-type: disc;
+}
+
+
+/* Navigationbar */
+#nav-bar	{
+	background-color : #2d617d;
+	padding : 3px 5px 7px 5px;
+	font-family : tahoma, arial, sans-serif;
+	font-size : 13px;
+	text-align : center;
+}	
+
+#nav-bar A{
+	color : #EEEEEE;
+	text-decoration : underline;
+}
+
+#nav-bar A:hover, #nav-bar A:active{
+	color : #FFFFFF;
+	text-decoration : underline;
+}
+
+.nav-title{
+	color : #EEEEEE;
+	font-weight : bold;
+	font-size : 11px;
+}
+
+.nav-left {
+	float : left;
+	text-align : left;
+	width : 40px;
+}
+
+.nav-right {
+	float : right;
+	text-align : right;
+	width : 40px;
+}
+
+
+#reg-text{
+	margin : 10px 4px 0px 10px;
+	font-size : 11px;
+}
+
+
+
+/* Boxes */
+#entry-box{
+	margin : 15px 5px 10px 5px;
+	width : 100px;
+}
+
+#box{
+	margin : 15px 5px 10px 5px;
+}
+
+#border-box{
+	margin : 15px 5px 10px 5px;
+	border : 1px solid #cddbe2;
+	background : #cddbe2;
+}
+
+.box-headline{
+	font-size : 12px;
+	font-weight : bold;
+	margin-bottom : 3px;
+}
+
+.more-box-headline{
+	font-size : 11px;
+	font-weight : bold;
+	margin-top : 20px;
+	margin-left : 3px;
+	border-bottom : 1px solid #cddbe2;
+}
+
+.box-text{
+	font-size : 7pt;	
+}
+
+
+/* Footer */
+#footer	{
+	margin-top : 25px;
+	border-top : 1px solid #eeeeee;
+	color : #aaaaaa;
+	text-align : center;
+	font-size : 9px;	
+}	
+
+#footer	A {
+	font-weight : normal;
+}
