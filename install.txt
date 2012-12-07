@@ -1,0 +1,16 @@
+Installation
+
+1. Blocken placeres i /var/www/?????/moodle/blocks/elsa 
+
+2.a Blocken installeres ved at trykke beskeder (notifications) øverst i admin panelet.
+    Alternativt, http://????.moodle.aau.dk/admin
+
+3. Nu skulle du få en beksed om at en elsa block er blevet installeret.
+
+4. Du kan nu finde blokken i admin panelet, under Moduler->Blokke->Hjælp mig! tryk på den.
+
+5. Første gang du trykker på den kommer der ikke noget indhold frem, tryk herefter på opdater listen og der bliver automatisk tilføjet en række standard emner.
+
+6. Til sidst kan du vælge at indstille moodle sådan at hjælpe blokken altid vises på bestemte sider. Dette gøres under Moduler->Blokke->Faste Blokke.
+
+
