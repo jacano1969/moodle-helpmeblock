@@ -3,7 +3,7 @@ require_once (dirname(__FILE__) . '/../../config.php');
 require_once ($CFG->dirroot . '/lib/accesslib.php');
 require_once ($CFG->dirroot . '/lib/deprecatedlib.php');
 require_once ($CFG->dirroot . '/lib/weblib.php');
-require_once ($CFG->dirroot . '/blocks/elsa/popup/_functions.php');
+require_once ($CFG->dirroot . '/blocks/helpme/popup/_functions.php');
 //deprecatedlib.php bliver brugt til isadmin, isstudent, isteacher.
 
 class block_helpme extends block_base {
