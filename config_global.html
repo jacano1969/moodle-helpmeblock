@@ -8,8 +8,8 @@ Denne fil inkluderes i settings siden for blocken, og laver det html der bruges 
 Email: michael@vestergard.dk
 */
 
-require_once ($CFG->dirroot . '/blocks/elsa/popup/_functions.php');
-require_once ($CFG->dirroot . '/blocks/elsa/db_install.php');
+require_once ($CFG->dirroot . '/blocks/helpme/popup/_functions.php');
+require_once ($CFG->dirroot . '/blocks/helpme/db_install.php');
 $urlphp = substr($_SERVER['REQUEST_URI'], 7);
 dbOpenConnection();
 if(isset($_GET["slet"]))
@@ -29,7 +29,7 @@ function confirmDelete(name, id){
 <div style="text-align:center;">
 <?
 echo '<button type="button" onclick="javascript:location.href=\''.$_SERVER['REQUEST_URI'].'\'">Opdater listen</button> <br /><br />';
-echo '<button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/edit.php?action=new\', \'Nyt hjælpemne\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Opret nyt hjælpeemne</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php\', \'Rediger kategorier\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger kategorier</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/fileupload.php\', \'Fil Upload\', \'location=1,status=1,scrollbars=1,height=600, width=500, scrollbars=1\')">Upload billede</button>';
+echo '<button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/helpme/popup/edit.php?action=new\', \'Nyt hjælpemne\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Opret nyt hjælpeemne</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/helpme/popup/editcat.php\', \'Rediger kategorier\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger kategorier</button> - <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/helpme/popup/fileupload.php\', \'Fil Upload\', \'location=1,status=1,scrollbars=1,height=600, width=500, scrollbars=1\')">Upload billede</button>';
 ?>
 <br /><br />
 Simpel hit stats: <? 
@@ -51,7 +51,7 @@ if(isDBsetup())
 	$i = 1;
 	while($subject != null)
 	{
-		echo '<tr><td valign="top" align="left"><b>'.$subject["titel_dk"].' / '.$subject["titel_en"].'</b> <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/elsa/popup/edit.php?guideId='.$subject["id"].'\', \'Rediger\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger</button> - <button type="button" onclick="javascript:confirmDelete(\''.$subject["titel_dk"].'\', \''.$subject["id"].'\')">Slet</button></td></tr>';
+		echo '<tr><td valign="top" align="left"><b>'.$subject["titel_dk"].' / '.$subject["titel_en"].'</b> <button type="button" onclick="javascript:window.open(\''.$CFG->wwwroot.'/blocks/helpme/popup/edit.php?guideId='.$subject["id"].'\', \'Rediger\', \'location=1,status=1,scrollbars=1,height=600, width=500\')">Rediger</button> - <button type="button" onclick="javascript:confirmDelete(\''.$subject["titel_dk"].'\', \''.$subject["id"].'\')">Slet</button></td></tr>';
 	
 		echo '<tr><td valign="top" align="left">';
 		echo '<input type="checkbox" name="ikke_logget_ind'.$i.'" ';

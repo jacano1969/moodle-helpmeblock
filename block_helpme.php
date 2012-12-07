@@ -10,7 +10,6 @@ class block_helpme extends block_base {
 		
 	function init() {
 		$this->title= '<img src="../blocks/helpme/elsa_qmark_small.gif" style="vertical-align:middle" /> '.get_string('title', 'block_helpme');
-		$this->version= 2009121200;
 	}
 	function has_config() {
 	  return true;
@@ -170,7 +169,7 @@ class block_helpme extends block_base {
 	
 	function initContent() {
 		global $CFG;
-		require_js($CFG->httpswwwroot . '/blocks/elsa/resizeJava.js');
+		require_js($CFG->httpswwwroot . '/blocks/helpme/resizeJava.js');
 		dbOpenConnection();
 		$text = '';
 		
@@ -382,7 +381,7 @@ class block_helpme extends block_base {
 			$text = 'Database ikke opsat korrekt. Gå til indstillinger for blocken for at opsætte den korrekt.';
 		
 		$this->content= new stdClass;
-		$this->content->footer= '<hr /><div style="text-align:center;"><a href="javascript:openAndResize(\''.$CFG->httpswwwroot.'/blocks/elsa/popup/help.php?lang='.$language.'\')">'.get_string('footertext', 'block_elsa').'</a></div>';
+		$this->content->footer= '<hr /><div style="text-align:center;"><a href="javascript:openAndResize(\''.$CFG->httpswwwroot.'/blocks/helpme/popup/help.php?lang='.$language.'\')">'.get_string('footertext', 'block_elsa').'</a></div>';
 		$this->content->text .= $text;
 	}
 	
@@ -390,7 +389,7 @@ class block_helpme extends block_base {
 	{
 		global $CFG;
 		if(!empty($text))
-			$html = '<p style="margin:2px"><img src="../blocks/elsa/elsa_qmark_small.gif" style="vertical-align:middle" /><a href="javascript:openAndResize(\''.$CFG->httpswwwroot.'/blocks/elsa/popup/helpguides.php?guideId='.$linkid.'&lang='.$language.'\')"> '.$text.'</a></p>';
+			$html = '<p style="margin:2px"><img src="../blocks/helpme/elsa_qmark_small.gif" style="vertical-align:middle" /><a href="javascript:openAndResize(\''.$CFG->httpswwwroot.'/blocks/helpme/popup/helpguides.php?guideId='.$linkid.'&lang='.$language.'\')"> '.$text.'</a></p>';
 		else
 			$html = "";
 		return $html;

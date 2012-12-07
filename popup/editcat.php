@@ -18,7 +18,7 @@ else
 if($_GET["action"] == "delete")
 {
 	dbQuery('DELETE FROM mdl_elsa_kategorier WHERE id='.$catId);
-	header('Location:'.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php');
+	header('Location:'.$CFG->wwwroot.'/blocks/helpme/popup/editcat.php');
 }
 
 header("Content-type: text/html; charset=utf-8"); 
@@ -27,7 +27,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	if(isset($_GET["catId"]) && $_GET["action"] == "edit")
 	{
 		dbQuery('UPDATE mdl_elsa_kategorier SET titel_dk = '.check_input($_POST['newcatdk']).', titel_en = '.check_input($_POST['newcaten']).'  WHERE id = '.$catId);
-		header('Location:'.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php');
+		header('Location:'.$CFG->wwwroot.'/blocks/helpme/popup/editcat.php');
 	}
 	if($_GET["action"] == "new")
 	{
@@ -57,7 +57,7 @@ if($catId == 0)
 		while($category = dbFetchArray($categories)){
 			echo $category["titel_dk"].'('.$category["titel_en"].') - <a href="editcat.php?catId='.$category["id"].'">Rediger</a> / <a href="editcat.php?action=delete&catId='.$category["id"].'">Slet</a> <br />';
 		}
-	echo '<br/><br/><hr>Opret ny kategori:<br/><form name="newcatform" action="'.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php?action=new" method="POST"><br/>DK: <input name="newcatdk" type="text" size="25" value="Indtast kategori navn her!"><br/><br/>EN: <input name="newcaten" type="text" size="25" value="Indtast kategori navn her!"><br/><input type="submit" value="Save" /></form>';
+	echo '<br/><br/><hr>Opret ny kategori:<br/><form name="newcatform" action="'.$CFG->wwwroot.'/blocks/helpme/popup/editcat.php?action=new" method="POST"><br/>DK: <input name="newcatdk" type="text" size="25" value="Indtast kategori navn her!"><br/><br/>EN: <input name="newcaten" type="text" size="25" value="Indtast kategori navn her!"><br/><input type="submit" value="Save" /></form>';
 }
 else
 {
@@ -65,7 +65,7 @@ else
 	$query = "SELECT id, titel_dk, titel_en FROM mdl_elsa_kategorier WHERE id = ".$catId;
 	$array = dbQuery($query);
 	$category = dbFetchArray($array);
-	echo '<form name="newcatform" action="'.$CFG->wwwroot.'/blocks/elsa/popup/editcat.php?action=edit&catId='.$category["id"].'" method="POST"><br/>DK: <input name="newcatdk" type="text" size="25" value="'.$category["titel_dk"].'"><br/><br/>EN: <input name="newcaten" type="text" size="25" value="'.$category["titel_en"].'"><br/><input type="submit" value="Save" /></form>';
+	echo '<form name="newcatform" action="'.$CFG->wwwroot.'/blocks/helpme/popup/editcat.php?action=edit&catId='.$category["id"].'" method="POST"><br/>DK: <input name="newcatdk" type="text" size="25" value="'.$category["titel_dk"].'"><br/><br/>EN: <input name="newcaten" type="text" size="25" value="'.$category["titel_en"].'"><br/><input type="submit" value="Save" /></form>';
 
 }
 echo '</body></html>';

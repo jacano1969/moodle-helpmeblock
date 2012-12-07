@@ -15,7 +15,7 @@ echo '<html>
 <script language=\'javascript\'>
 function confirmDelete(name, id){
 	if(confirm(\'Vil du slette \'+name+\'?\')){
-		location.href=\''.$CFG->wwwroot.'/blocks/elsa/popup/fileupload.php?slet=\'+id;
+		location.href=\''.$CFG->wwwroot.'/blocks/helpme/popup/fileupload.php?slet=\'+id;
 	}
 }
 </script>
@@ -25,7 +25,7 @@ function confirmDelete(name, id){
 
 if(isset($_GET["slet"]))
 {
-	if(unlink($CFG->dirroot .'/blocks/elsa/popup/guideimages/'.$_GET["slet"]))
+	if(unlink($CFG->dirroot .'/blocks/helpme/popup/guideimages/'.$_GET["slet"]))
 		echo 'Filen '.$_GET["slet"].' blev slettet.<br />';
 	else
 		echo 'Filen '.$_GET["slet"].' kunne ikke slettes.<br /><br />';
@@ -45,14 +45,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		echo "Type: " . $_FILES["file"]["type"] . "<br />";
 		echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 
-		if (file_exists($CFG->dirroot .'/blocks/elsa/popup/guideimages/' . $_FILES["file"]["name"]))
+		if (file_exists($CFG->dirroot .'/blocks/helpme/popup/guideimages/' . $_FILES["file"]["name"]))
 		  {
 		  echo $_FILES["file"]["name"] . " eksisterer allerede. <br />";
 		  }
 		else
 		  {
 		  move_uploaded_file($_FILES["file"]["tmp_name"],
-		  $CFG->dirroot .'/blocks/elsa/popup/guideimages/' . $_FILES["file"]["name"]);
+		  $CFG->dirroot .'/blocks/helpme/popup/guideimages/' . $_FILES["file"]["name"]);
 		  echo "Gemt i : " . "../guideimages/" . $_FILES["file"]["name"]."<br />";
 		  }
 		}
@@ -63,14 +63,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	  }
 
 }
-echo '<b>Fil upload:</b><br /><form enctype="multipart/form-data" action="'.$CFG->wwwroot.'/blocks/elsa/popup/fileupload.php" method="post">
+echo '<b>Fil upload:</b><br /><form enctype="multipart/form-data" action="'.$CFG->wwwroot.'/blocks/helpme/popup/fileupload.php" method="post">
 <input type="file" name="file" value=""><br>
 <input type="submit" name="submit" value="Upload">
 </form>';
 
-if ($handle = opendir($CFG->dirroot .'/blocks/elsa/popup/guideimages')) 
+if ($handle = opendir($CFG->dirroot .'/blocks/helpme/popup/guideimages')) 
 {
-	echo '<br /><hr>Filerne kan tilgåes via '.$CFG->wwwroot .'/blocks/elsa/popup/guideimages/billedenavn.*** eller blot guideimages/billedenavn.*** når de bruges i guiderne.<br /><b>Liste over eksisterende filer:</b><br />';
+	echo '<br /><hr>Filerne kan tilgåes via '.$CFG->wwwroot .'/blocks/helpme/popup/guideimages/billedenavn.*** eller blot guideimages/billedenavn.*** når de bruges i guiderne.<br /><b>Liste over eksisterende filer:</b><br />';
 	while (false !== ($file = readdir($handle))) {
 		if($file !== "." && $file !== "..")
 		echo $file.' - <button type="button" onclick="javascript:confirmDelete(\''.$file.'\', \''.$file.'\')">Slet</button><br />';
