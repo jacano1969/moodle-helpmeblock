@@ -2,5 +2,5 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-phpinfo();
+#phpinfo();
 }
